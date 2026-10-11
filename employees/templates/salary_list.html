@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary List</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="salary-list-page">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">
+            Employee Salary Management
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'dashboard' %}">🏠 Dashboard</a>
+            <a href="{% url 'employee_list' %}">👥 Employees</a>
+            <a href="{% url 'salary_list' %}">💰 Salary</a>
+            <a href="{% url 'leave_list' %}">🏖️ Leaves</a>
+            <a href="{% url 'logout' %}" class="logout">🚪 Logout</a>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <div class="page-header">
+            <h1>💰 Salary List</h1>
+
+            <a href="{% url 'salary_add' %}" class="btn">
+                + Add Salary
+            </a>
+        </div>
+
+        <div class="table-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employee</th>
+                        <th>Basic Salary</th>
+                        <th>Allowances</th>
+                        <th>Deductions</th>
+                        <th>Total Salary</th>
+                        <th>Month</th>
+                        <th>Paid Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for salary in salaries %}
+                    <tr>
+                        <td>{{ salary.id }}</td>
+                        <td>{{ salary.employee.name }}</td>
+                        <td>₹{{ salary.basic_salary }}</td>
+                        <td>₹{{ salary.allowances }}</td>
+                        <td>₹{{ salary.deductions }}</td>
+
+                        <td>
+                            <strong>₹{{ salary.total_salary }}</strong>
+                        </td>
+
+                        <td>{{ salary.salary_month }}</td>
+                        <td>{{ salary.paid_date|date:"d-m-Y" }}</td>
+
+                        <td>
+                            <span class="status-badge
+                                {% if salary.status == 'Paid' %}
+                                    paid
+                                {% else %}
+                                    pending
+                                {% endif %}">
+                                {{ salary.status }}
+                            </span>
+                        </td>
+
+                        <td class="actions">
+                            <a href="{% url 'salary_edit' salary.id %}"
+                               class="edit">
+                                Edit
+                            </a>
+
+                            <a href="{% url 'salary_delete' salary.id %}"
+                               class="delete">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+
+                    {% empty %}
+                    <tr>
+                        <td colspan="10" class="empty">
+                            No salary records found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

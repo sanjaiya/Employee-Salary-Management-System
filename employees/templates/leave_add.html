@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Leave</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="leave-add-page">
+
+    <div class="container">
+
+        <h1>🏖️ Add Leave</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Employee</label>
+
+            <select name="employee" required>
+
+                <option value="">Select Employee</option>
+
+                {% for employee in employees %}
+                <option value="{{ employee.id }}">
+                    {{ employee.name }}
+                </option>
+                {% endfor %}
+
+            </select>
+
+            <label>Leave Type</label>
+
+            <select name="leave_type" required>
+
+                <option value="">Select Leave Type</option>
+                <option value="Casual Leave">Casual Leave</option>
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Earned Leave">Earned Leave</option>
+                <option value="Emergency Leave">Emergency Leave</option>
+                <option value="Other">Other</option>
+
+            </select>
+
+            <label>Start Date</label>
+
+            <input type="date" name="start_date" required>
+
+            <label>End Date</label>
+
+            <input type="date" name="end_date" required>
+
+            <label>Reason</label>
+
+            <textarea name="reason" placeholder="Enter leave reason" required></textarea>
+
+            <label>Status</label>
+
+            <select name="status" required>
+
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+
+            </select>
+
+            <div class="buttons">
+
+                <button type="submit">
+                    Add Leave
+                </button>
+
+                <a href="{% url 'leave_list' %}" class="back">
+                    ← Back
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

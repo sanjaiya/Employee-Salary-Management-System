@@ -1,0 +1,2207 @@
+/* GENERAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    background: white;
+    color: black;
+}
+/* NAVBAR */
+.navbar {
+    background: black;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+.nav-links a:hover {
+    background: blue;
+}
+.logout {
+    background: red;
+}
+/* MAIN CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1160px;
+    margin: 40px auto;
+}
+.welcome {
+    margin-bottom: 30px;
+}
+.welcome h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.welcome p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+/* DASHBOARD CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+.card {
+    background: white;
+    padding: 28px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px darkblue;
+    text-align: center;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 14px;
+}
+.card h3 {
+    font-size: 16px;
+    color: blue;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.card .number {
+    font-size: 32px;
+    font-weight: bold;
+    color: black;
+    line-height: 1.3;
+}
+/* ACTION BUTTONS */
+.actions {
+    margin-top: 35px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    background: blue;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.btn:hover {
+    background: blueviolet;
+}
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+@media (max-width: 900px) {
+    .container {
+        width: 92%;
+    }
+    .navbar {
+        padding: 15px 20px;
+    }
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 500px) {
+    .container {
+        width: 92%;
+        margin: 25px auto;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .nav-links a {
+        font-size: 13px;
+        padding: 9px 10px;
+    }
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+    }
+    .welcome h2 {
+        font-size: 24px;
+    }
+}
+/* ADD DEPARTMENT PAGE ONLY */
+.department-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+/* NAVBAR */
+.department-page .navbar {
+    background: #1f2937;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.department-page .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.department-page .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.department-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+.department-page .nav-links a:hover {
+    color: #60a5fa;
+}
+/* CONTAINER */
+.department-page .department-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+}
+/* FORM BOX */
+.department-page .form-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* HEADING */
+.department-page .form-box h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #1f2937;
+    text-align: center;
+}
+/* LABEL */
+.department-page .form-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #374151;
+}
+/* INPUT */
+.department-page .form-box input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+.department-page .form-box input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+/* BUTTONS */
+.department-page .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.department-page .save-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.department-page .save-btn:hover {
+    background: #1d4ed8;
+}
+.department-page .cancel-btn {
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+}
+.department-page .cancel-btn:hover {
+    background: #4b5563;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .department-page .navbar {
+        padding: 15px 20px;
+    }
+    .department-page .department-container {
+        width: 92%;
+        margin: 30px auto;
+    }
+    .department-page .form-box {
+        padding: 22px;
+    }
+}
+/* DELETE DEPARTMENT PAGE ONLY */
+.department-delete-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+/* CONTAINER */
+.department-delete-page .delete-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 100px auto;
+}
+/* DELETE BOX */
+.department-delete-page .delete-box {
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* HEADING */
+.department-delete-page .delete-box h1 {
+    color: #dc2626;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+/* MESSAGE */
+.department-delete-page .delete-box p {
+    color: #374151;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+/* DELETE BUTTON */
+.department-delete-page .delete-box button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.department-delete-page .delete-box button:hover {
+    background: #b91c1c;
+}
+/* CANCEL BUTTON */
+.department-delete-page .delete-box a {
+    display: inline-block;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+.department-delete-page .delete-box a:hover {
+    background: #4b5563;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 500px) {
+    .department-delete-page .delete-container {
+        width: 92%;
+        margin: 50px auto;
+    }
+    .department-delete-page .delete-box {
+        padding: 25px 18px;
+    }
+    .department-delete-page .delete-box button,
+    .department-delete-page .delete-box a {
+        margin: 5px;
+    }
+}
+.department-edit-page * {
+    box-sizing: border-box;
+}
+.department-edit-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+/* Navbar */
+.department-edit-page .navbar {
+    background: #1f2937;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.department-edit-page .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.department-edit-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+}
+/* Main Container */
+.department-edit-page .container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+}
+/* Form Box */
+.department-edit-page .form-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* Heading */
+.department-edit-page h1 {
+    text-align: center;
+    color: #1f2937;
+    margin-bottom: 30px;
+}
+/* Label */
+.department-edit-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+/* Input */
+.department-edit-page input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+/* Buttons */
+.department-edit-page .buttons {
+    display: flex;
+    gap: 10px;
+}
+.department-edit-page .save-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.department-edit-page .save-btn:hover {
+    background: #1d4ed8;
+}
+.department-edit-page .cancel-btn {
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+}
+.department-edit-page .cancel-btn:hover {
+    background: #4b5563;
+}
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .department-edit-page .navbar {
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .department-edit-page .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    .department-edit-page .nav-links a {
+        margin-left: 0;
+    }
+    .department-edit-page .container {
+        width: 95%;
+        margin: 25px auto;
+    }
+    .department-edit-page .form-box {
+        padding: 20px;
+    }
+    .department-edit-page .buttons {
+        flex-wrap: wrap;
+    }
+}
+/* General Styles */
+
+.department-list-page * {
+    box-sizing: border-box;
+}
+.department-list-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+/* Navbar */
+.department-list-page .navbar {
+    background: #1f2937;
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.department-list-page .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+.department-list-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 15px;
+}
+.department-list-page .nav-links a:hover {
+    color: #60a5fa;
+}
+/* Main Container */
+.department-list-page .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+/* Top Section */
+.department-list-page .top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.department-list-page h1 {
+    color: #1f2937;
+    margin: 0;
+}
+/* Add Department Button */
+.department-list-page .add-btn {
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.department-list-page .add-btn:hover {
+    background: #1d4ed8;
+}
+/* Table Box */
+.department-list-page .table-box {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
+}
+/* Table */
+.department-list-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.department-list-page th {
+    background: #1f2937;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+.department-list-page td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.department-list-page tbody tr:hover {
+    background: #f9fafb;
+}
+/* Edit Button */
+.department-list-page .edit-btn {
+    display: inline-block;
+    background: #f59e0b;
+    color: white;
+    padding: 7px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+/* Delete Button */
+.department-list-page .delete-btn {
+    display: inline-block;
+    background: #dc2626;
+    color: white;
+    padding: 7px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+/* Empty Message */
+.department-list-page .empty {
+    text-align: center;
+    padding: 25px;
+    color: #6b7280;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .department-list-page .navbar {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .department-list-page .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+    .department-list-page .nav-links a {
+        margin-left: 0;
+    }
+    .department-list-page .container {
+        width: 95%;
+        margin: 25px auto;
+    }
+    .department-list-page .top-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+    .department-list-page h1 {
+        font-size: 24px;
+    }
+    .department-list-page .table-box {
+        padding: 12px;
+    }
+    .department-list-page th,
+    .department-list-page td {
+        padding: 10px;
+        white-space: nowrap;
+    }
+}
+.employee-add-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px;
+}
+.employee-add-page .container {
+    width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.employee-add-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.employee-add-page label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.employee-add-page input,
+.employee-add-page select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.employee-add-page button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.employee-add-page button:hover {
+    background: #1d4ed8;
+}
+.employee-add-page .back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+}
+.employee-delete-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px;
+}
+.employee-delete-page .container {
+    width: 500px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.employee-delete-page h1 {
+    color: #dc2626;
+}
+.employee-delete-page p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+.employee-delete-page .delete-btn {
+    padding: 12px 25px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.employee-delete-page .delete-btn:hover {
+    background: #b91c1c;
+}
+.employee-delete-page .cancel {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 12px 25px;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.employee-delete-page .cancel:hover {
+    background: #4b5563;
+}
+.employee-edit-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px;
+}
+.employee-edit-page .container {
+    width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.employee-edit-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.employee-edit-page label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.employee-edit-page input,
+.employee-edit-page select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.employee-edit-page button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.employee-edit-page button:hover {
+    background: #1d4ed8;
+}
+.employee-edit-page .back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+}
+.employee-list-page * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.employee-list-page {
+    background: #f4f6f9;
+    color: #333;
+}
+/* NAVBAR */
+.employee-list-page .navbar {
+    background: #1f2937;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.employee-list-page .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+.employee-list-page .nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.employee-list-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.employee-list-page .nav-links a:hover {
+    background: #374151;
+}
+.employee-list-page .logout {
+    background: #dc2626;
+}
+.employee-list-page .logout:hover {
+    background: #b91c1c !important;
+}
+/* MAIN CONTAINER */
+.employee-list-page .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+/* HEADER */
+.employee-list-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.employee-list-page h1 {
+    font-size: 28px;
+    color: #111827;
+}
+/* ADD BUTTON */
+.employee-list-page .btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #2563eb;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+.employee-list-page .btn:hover {
+    background: #1d4ed8;
+}
+/* SEARCH */
+.employee-list-page .search-box {
+    margin-bottom: 25px;
+}
+.employee-list-page .search-box form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.employee-list-page .search-box input {
+    padding: 11px 15px;
+    width: 280px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    outline: none;
+}
+.employee-list-page .search-box input:focus {
+    border-color: #2563eb;
+}
+.employee-list-page .search-btn {
+    padding: 11px 18px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.employee-list-page .search-btn:hover {
+    background: #1d4ed8;
+}
+.employee-list-page .clear-btn {
+    padding: 11px 18px;
+    background: #6b7280;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+.employee-list-page .clear-btn:hover {
+    background: #4b5563;
+}
+/* TABLE */
+.employee-list-page .table-container {
+    overflow-x: auto;
+}
+.employee-list-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.employee-list-page th {
+    background: #1f2937;
+    color: white;
+    padding: 14px;
+    text-align: left;
+}
+.employee-list-page td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.employee-list-page tr:hover {
+    background: #f9fafb;
+}
+/* ACTION LINKS */
+.employee-list-page .edit {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 12px;
+}
+.employee-list-page .delete {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: bold;
+}
+.employee-list-page .edit:hover,
+.employee-list-page .delete:hover {
+    text-decoration: underline;
+}
+/* EMPTY MESSAGE */
+.employee-list-page .empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 25px;
+}
+/* MOBILE */
+@media (max-width: 700px) {
+    .employee-list-page .navbar {
+        padding: 15px 20px;
+    }
+    .employee-list-page .container {
+        width: 95%;
+        padding: 20px;
+    }
+    .employee-list-page h1 {
+        font-size: 23px;
+    }
+    .employee-list-page .search-box input {
+        width: 100%;
+    }
+    .employee-list-page th,
+    .employee-list-page td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+.leave-add-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+}
+.leave-add-page .container {
+    max-width: 650px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+}
+.leave-add-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+}
+.leave-add-page label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+.leave-add-page input,
+.leave-add-page select,
+.leave-add-page textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.leave-add-page textarea {
+    height: 100px;
+    resize: vertical;
+}
+.leave-add-page .buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+}
+.leave-add-page button,
+.leave-add-page .back {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.leave-add-page button {
+    background: #2563eb;
+    color: white;
+}
+.leave-add-page button:hover {
+    background: #1d4ed8;
+}
+.leave-add-page .back {
+    background: #6b7280;
+    color: white;
+}
+.leave-add-page .back:hover {
+    background: #4b5563;
+}
+/* ===== DELETE LEAVE PAGE ===== */
+.leave-delete-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+}
+.leave-delete-page .container {
+    max-width: 550px;
+    margin: 80px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    text-align: center;
+    box-sizing: border-box;
+}
+.leave-delete-page h1 {
+    margin-bottom: 20px;
+    color: #dc2626;
+}
+.leave-delete-page .warning {
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.leave-delete-page .details {
+    text-align: left;
+    background: #f9fafb;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    overflow-wrap: anywhere;
+}
+.leave-delete-page .details p {
+    margin: 8px 0;
+}
+.leave-delete-page .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.leave-delete-page .buttons button,
+.leave-delete-page .buttons a {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.leave-delete-page .buttons button {
+    background: #dc2626;
+    color: white;
+}
+.leave-delete-page .buttons button:hover {
+    background: #b91c1c;
+}
+.leave-delete-page .buttons .back {
+    background: #6b7280;
+    color: white;
+}
+.leave-delete-page .buttons .back:hover {
+    background: #4b5563;
+}
+/* ===== EDIT LEAVE PAGE ===== */
+.leave-edit-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 30px;
+}
+.leave-edit-page .container {
+    max-width: 650px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
+    box-sizing: border-box;
+}
+.leave-edit-page h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.leave-edit-page label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+.leave-edit-page input,
+.leave-edit-page select,
+.leave-edit-page textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+.leave-edit-page textarea {
+    height: 100px;
+    resize: vertical;
+}
+.leave-edit-page .buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.leave-edit-page .buttons button,
+.leave-edit-page .buttons a {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.leave-edit-page .buttons button {
+    background: #f59e0b;
+    color: white;
+}
+.leave-edit-page .buttons button:hover {
+    background: #d97706;
+}
+.leave-edit-page .buttons .back {
+    background: #6b7280;
+    color: white;
+}
+.leave-edit-page .buttons .back:hover {
+    background: #4b5563;
+}
+@media (max-width: 600px) {
+    .leave-edit-page {
+        padding: 15px;
+    }
+
+    .leave-edit-page .container {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+/* ===== LEAVE LIST PAGE ===== */
+.leave-list-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/* NAVBAR */
+.leave-list-page .navbar {
+    width: 100%;
+    background: #1f2937;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-sizing: border-box;
+}
+.leave-list-page .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+.leave-list-page .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.leave-list-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    display: inline-block;
+}
+.leave-list-page .nav-links a:hover {
+    background: #374151;
+}
+.leave-list-page .nav-links .logout {
+    background: #dc2626;
+}
+.leave-list-page .nav-links .logout:hover {
+    background: #b91c1c;
+}
+/* MAIN CONTAINER */
+.leave-list-page .container {
+    width: 95%;
+    max-width: 1500px;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+/* HEADER */
+.leave-list-page .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.leave-list-page h1 {
+    color: #111827;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+/* ADD LEAVE BUTTON */
+.leave-list-page .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 7px;
+    color: white;
+    background: #2563eb;
+    font-weight: bold;
+}
+.leave-list-page .btn:hover {
+    background: #1d4ed8;
+}
+/* TABLE CONTAINER */
+.leave-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+}
+/* TABLE */
+.leave-list-page table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+/* TABLE HEADER */
+.leave-list-page th {
+    background: #1f2937;
+    color: white;
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 16px;
+    white-space: nowrap;
+}
+/* TABLE DATA */
+.leave-list-page td {
+    padding: 13px 16px;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: middle;
+    font-size: 15px;
+    line-height: 1.4;
+}
+.leave-list-page tbody tr:last-child td {
+    border-bottom: none;
+}
+.leave-list-page tbody tr:hover {
+    background: #f9fafb;
+}
+/* ACTIONS COLUMN */
+.leave-list-page .actions {
+    white-space: nowrap;
+    text-align: left;
+    vertical-align: middle;
+}
+.leave-list-page .edit,
+.leave-list-page .delete {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.leave-list-page .edit {
+    background: #f59e0b;
+    margin-right: 6px;
+
+}
+.leave-list-page .edit:hover {
+    background: #d97706;
+}
+.leave-list-page .delete {
+    background: #dc2626;
+}
+.leave-list-page .delete:hover {
+    background: #b91c1c;
+}
+/* STATUS */
+.leave-list-page .status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #fef3c7;
+    color: #92400e;
+    font-weight: bold;
+    white-space: nowrap;
+}
+/* EMPTY MESSAGE */
+.leave-list-page .empty {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 700px) {
+    .leave-list-page .navbar {
+        padding: 15px 20px;
+    }
+    .leave-list-page .logo {
+        font-size: 19px;
+    }
+    .leave-list-page .nav-links {
+        gap: 6px;
+    }
+    .leave-list-page .nav-links a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    .leave-list-page .container {
+        width: 95%;
+        margin: 25px auto;
+    }
+    .leave-list-page .header {
+        align-items: flex-start;
+    }
+    .leave-list-page h1 {
+        font-size: 23px;
+    }
+    .leave-list-page .table-container {
+        overflow-x: auto;
+    }
+    .leave-list-page table {
+        min-width: 900px;
+    }
+}
+/* ===== LOGIN PAGE ===== */
+.login-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+/* LOGIN BOX */
+.login-page .login-box {
+    background: white;
+    width: 100%;
+    max-width: 380px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+}
+/* HEADING */
+.login-page .login-box h2 {
+    text-align: center;
+    margin: 0 0 10px;
+    color: #1f2937;
+    font-size: 23px;
+}
+/* DESCRIPTION */
+.login-page .login-box p {
+    text-align: center;
+    color: #6b7280;
+    margin: 0 0 25px;
+}
+/* LABELS */
+.login-page .login-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #374151;
+}
+/* INPUT FIELDS */
+.login-page .login-box input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 0 0 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.login-page .login-box input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+/* LOGIN BUTTON */
+.login-page .login-box .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.login-page .login-box .btn:hover {
+    background: #1d4ed8;
+}
+/* ERROR MESSAGE */
+.login-page .login-box .error {
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    .login-page {
+        padding: 15px;
+    }
+    .login-page .login-box {
+        padding: 25px;
+    }
+    .login-page .login-box h2 {
+        font-size: 21px;
+    }
+}
+/* ===== ADD SALARY PAGE ===== */
+.salary-add-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+/* CONTAINER */
+.salary-add-page .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+/* HEADING */
+.salary-add-page h1 {
+    text-align: center;
+    margin: 0 0 25px;
+    color: #1f2937;
+    font-size: 28px;
+}
+/* LABELS */
+.salary-add-page label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #374151;
+}
+/* INPUTS AND SELECTS */
+.salary-add-page input,
+.salary-add-page select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    background: white;
+}
+.salary-add-page input:focus,
+.salary-add-page select:focus {
+    outline: none;
+    border-color: #16a34a;
+}
+/* SAVE BUTTON */
+.salary-add-page button {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.salary-add-page button:hover {
+    background: #15803d;
+}
+/* BACK LINK */
+.salary-add-page .back {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    text-decoration: none;
+    color: #2563eb;
+    font-size: 15px;
+}
+.salary-add-page .back:hover {
+    text-decoration: underline;
+}
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+    .salary-add-page {
+        padding: 20px 12px;
+    }
+    .salary-add-page .container {
+        padding: 22px;
+    }
+    .salary-add-page h1 {
+        font-size: 24px;
+    }
+}
+/* ===== DELETE SALARY PAGE ===== */
+.salary-delete-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+/* CONTAINER */
+.salary-delete-page .container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+/* HEADING */
+.salary-delete-page h1 {
+    color: #dc2626;
+    font-size: 27px;
+    margin: 0 0 20px;
+}
+/* MESSAGE */
+.salary-delete-page p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #374151;
+    margin: 25px 0;
+    overflow-wrap: anywhere;
+}
+/* BUTTONS */
+.salary-delete-page form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.salary-delete-page button,
+.salary-delete-page .cancel {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+/* DELETE BUTTON */
+.salary-delete-page button {
+    background: #dc2626;
+    color: white;
+}
+.salary-delete-page button:hover {
+    background: #b91c1c;
+}
+/* CANCEL BUTTON */
+.salary-delete-page .cancel {
+    background: #6b7280;
+    color: white;
+}
+.salary-delete-page .cancel:hover {
+    background: #4b5563;
+}
+/* MOBILE */
+@media (max-width: 480px) {
+    .salary-delete-page {
+        padding: 20px 12px;
+    }
+    .salary-delete-page .container {
+        padding: 22px;
+    }
+    .salary-delete-page h1 {
+        font-size: 23px;
+    }
+    .salary-delete-page p {
+        font-size: 16px;
+    }
+    .salary-delete-page button,
+    .salary-delete-page .cancel {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+}
+/*EDIT SALARY PAGE */
+.salary-edit-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+.salary-edit-page .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+.salary-edit-page h1 {
+    text-align: center;
+    margin: 0 0 25px;
+    color: #1e293b;
+}
+.salary-edit-page label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #334155;
+}
+.salary-edit-page input,
+.salary-edit-page select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+    background: #ffffff;
+}
+.salary-edit-page input:focus,
+.salary-edit-page select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.salary-edit-page button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.salary-edit-page button:hover {
+    background: #1d4ed8;
+}
+.salary-edit-page .back {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #2563eb;
+    text-decoration: none;
+}
+.salary-edit-page .back:hover {
+    text-decoration: underline;
+}
+@media (max-width: 600px) {
+    .salary-edit-page {
+        padding: 20px 12px;
+    }
+    .salary-edit-page .container {
+        padding: 20px;
+    }
+}
+/* SALARY LIST PAGE */
+.salary-list-page {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+    margin: 0;
+}
+/* NAVBAR */
+.salary-list-page .navbar {
+    background: #1f2937;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.salary-list-page .logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+.salary-list-page .nav-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.salary-list-page .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.salary-list-page .nav-links a:hover {
+    background: #374151;
+}
+.salary-list-page .nav-links .logout {
+    background: #dc2626;
+}
+.salary-list-page .nav-links .logout:hover {
+    background: #b91c1c;
+}
+/* MAIN CONTAINER */
+.salary-list-page .container {
+    width: 95%;
+    max-width: 1250px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+/* HEADER */
+.salary-list-page .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.salary-list-page h1 {
+    color: #111827;
+    font-size: 28px;
+}
+/* ADD BUTTON */
+.salary-list-page .btn {
+    display: inline-block;
+    padding: 11px 18px;
+    background: #16a34a;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+.salary-list-page .btn:hover {
+    background: #15803d;
+}
+/* TABLE */
+.salary-list-page .table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+.salary-list-page table {
+    width: 100%;
+    min-width: 1000px;
+    border-collapse: collapse;
+}
+.salary-list-page th,
+.salary-list-page td {
+    padding: 13px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+    white-space: nowrap;
+}
+.salary-list-page th {
+    background: #2563eb;
+    color: white;
+    font-size: 14px;
+}
+.salary-list-page tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+.salary-list-page tbody tr:hover {
+    background: #f1f5f9;
+}
+/* ACTION LINKS */
+.salary-list-page .actions .edit {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.salary-list-page .actions .delete {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: bold;
+}
+.salary-list-page .actions .edit:hover,
+.salary-list-page .actions .delete:hover {
+    text-decoration: underline;
+}
+/* STATUS BADGES */
+.salary-list-page .status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.salary-list-page .status-badge.paid {
+    background: #dcfce7;
+    color: #166534;
+}
+.salary-list-page .status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+/* EMPTY MESSAGE */
+.salary-list-page .empty {
+    padding: 25px;
+    text-align: center;
+    color: #6b7280;
+}
+/* MOBILE */
+@media (max-width: 700px) {
+    .salary-list-page .navbar {
+        padding: 15px 20px;
+    }
+    .salary-list-page .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    .salary-list-page h1 {
+        font-size: 23px;
+    }
+}
+/* SALARY LIST - ACTION BUTTON ALIGNMENT */
+.salary-list-page .actions {
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.salary-list-page .actions .edit,
+.salary-list-page .actions .delete {
+    display: inline-block;
+    padding: 10px 14px;
+    margin: 0 5px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.salary-list-page .actions .edit {
+    background: #f59e0b;
+    color: #ffffff;
+}
+.salary-list-page .actions .edit:hover {
+    background: #d97706;
+    text-decoration: none;
+}
+.salary-list-page .actions .delete {
+    background: #dc2626;
+    color: #ffffff;
+}
+.salary-list-page .actions .delete:hover {
+    background: #b91c1c;
+    text-decoration: none;
+}
+.salary-list-page td.actions {
+    display: table-cell;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.salary-list-page td.actions .edit,
+.salary-list-page td.actions .delete {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 4px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.4;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.salary-list-page td.actions .edit {
+    background: #f59e0b;
+    color: #ffffff;
+}
+.salary-list-page td.actions .edit:hover {
+    background: #d97706;
+    text-decoration: none;
+}
+.salary-list-page td.actions .delete {
+    background: #dc2626;
+    color: #ffffff;
+}
+.salary-list-page td.actions .delete:hover {
+    background: #b91c1c;
+    text-decoration: none;
+}
+@media (max-width: 700px) {
+    .salary-list-page td.actions {
+        display: table-cell;
+        white-space: nowrap;
+    }
+    .salary-list-page td.actions .edit,
+    .salary-list-page td.actions .delete {
+        display: inline-block !important;
+        width: auto !important;
+    }
+}
+/* LEAVE MANAGEMENT - EDIT & DELETE BUTTON ALIGNMENT */
+.leave-list-page td.actions {
+    display: table-cell !important;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.leave-list-page td.actions .edit,
+.leave-list-page td.actions .delete {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 6px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.leave-list-page td.actions .edit {
+    background-color: #f59e0b;
+    color: #ffffff;
+}
+.leave-list-page td.actions .delete {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+.leave-list-page td.actions .edit:hover {
+    background-color: #d97706;
+}
+.leave-list-page td.actions .delete:hover {
+    background-color: #b91c1c;
+}
+/* EMPLOYEE EDIT PAGE */
+.employee-edit-page {
+    background: #f1f5f9;
+    min-height: 100vh;
+    padding: 35px 20px;
+    font-family: Arial, sans-serif;
+}
+.employee-edit-page .form-container {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+.employee-edit-page h1,
+.employee-edit-page h2 {
+    color: #1e293b;
+    margin-bottom: 25px;
+}
+.employee-edit-page form p {
+    margin-bottom: 18px;
+}
+.employee-edit-page label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+.employee-edit-page input,
+.employee-edit-page select,
+.employee-edit-page textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+.employee-edit-page input:focus,
+.employee-edit-page select:focus,
+.employee-edit-page textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.employee-edit-page button,
+.employee-edit-page .update-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+.employee-edit-page button:hover,
+.employee-edit-page .update-btn:hover {
+    background: #1d4ed8;
+}
+.employee-edit-page .back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+/* EMPLOYEE LIST ACTION LINKS */
+
+.employee-list-page td.actions a {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.employee-list-page td.actions a:first-child {
+    color: #ffffff;
+    background: #2563eb;
+}
+
+.employee-list-page td.actions a:last-child {
+    color: #ffffff;
+    background: #dc2626;
+}
+
+.employee-list-page td.actions a:first-child:hover {
+    background: #1d4ed8;
+}
+
+.employee-list-page td.actions a:last-child:hover {
+    background: #b91c1c;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+    .employee-edit-page .form-container {
+        padding: 20px;
+        margin: 10px auto;
+    }
+    .employee-edit-page input,
+    .employee-edit-page select,
+    .employee-edit-page textarea {
+        font-size: 14px;
+    }
+}
+/* EMPLOYEE DELETE PAGE */
+.employee-delete-page {
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    background: #f1f5f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+.employee-delete-page .delete-container {
+    width: 100%;
+    max-width: 550px;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+.employee-delete-page h1 {
+    color: #dc2626;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.employee-delete-page p {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.employee-delete-page strong {
+    color: #1e293b;
+}
+.employee-delete-page .confirm-delete-btn,
+.employee-delete-page .cancel-delete-btn {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+.employee-delete-page .confirm-delete-btn {
+    background: #dc2626;
+    color: #ffffff;
+}
+.employee-delete-page .confirm-delete-btn:hover {
+    background: #b91c1c;
+    transform: translateY(-2px);
+}
+.employee-delete-page .cancel-delete-btn {
+    background: #64748b;
+    color: #ffffff;
+}
+.employee-delete-page .cancel-delete-btn:hover {
+    background: #475569;
+    transform: translateY(-2px);
+}
+@media (max-width: 500px) {
+    .employee-delete-page .delete-container {
+        padding: 22px;
+    }
+    
+    .employee-delete-page .confirm-delete-btn,
+    .employee-delete-page .cancel-delete-btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}

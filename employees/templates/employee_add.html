@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Employee</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="employee-add-page">
+
+    <div class="container">
+
+        <h1>➕ Add Employee</h1>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <label>Employee Name</label>
+            <input type="text" name="name" required>
+
+            <label>Email</label>
+            <input type="email" name="email" required>
+
+            <label>Phone</label>
+            <input type="text" name="phone" required>
+
+            <label>Age</label>
+            <input type="number" name="age" required>
+
+            <label>Department</label>
+            <select name="department" required>
+
+                <option value="">-- Select Department --</option>
+
+                {% for department in departments %}
+                <option value="{{ department.id }}">
+                    {{ department.dept_name }}
+                </option>
+                {% endfor %}
+
+            </select>
+
+            <label>Designation</label>
+            <input type="text" name="designation" required>
+
+            <label>Joining Date</label>
+            <input type="date" name="joining_date" required>
+
+            <label>Status</label>
+            <select name="status">
+
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+
+            </select>
+
+            <button type="submit">
+                💾 Save Employee
+            </button>
+
+        </form>
+
+        <a href="{% url 'employee_list' %}" class="back">
+            ← Back to Employee List
+        </a>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leave Management</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="leave-list-page">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">
+            Employee Salary Management
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{% url 'dashboard' %}">🏠 Dashboard</a>
+
+            <a href="{% url 'employee_list' %}">👥 Employees</a>
+
+            <a href="{% url 'salary_list' %}">💰 Salary</a>
+
+            <a href="{% url 'leave_list' %}">🏖️ Leaves</a>
+
+            <a href="{% url 'logout' %}" class="logout">🚪 Logout</a>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <div class="header">
+
+            <h1>🏖️ Leave Management</h1>
+
+            <a href="{% url 'leave_add' %}" class="btn">
+                + Add Leave
+            </a>
+
+        </div>
+
+        <!-- LEAVE TABLE -->
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employee</th>
+                        <th>Leave Type</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Reason</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for leave in leaves %}
+
+                    <tr>
+
+                        <td>{{ leave.id }}</td>
+
+                        <td>{{ leave.employee.name }}</td>
+
+                        <td>{{ leave.leave_type }}</td>
+
+                        <td>{{ leave.start_date }}</td>
+
+                        <td>{{ leave.end_date }}</td>
+
+                        <td>{{ leave.reason }}</td>
+
+                        <td>
+                            <span class="status">
+                                {{ leave.status }}
+                            </span>
+                        </td>
+
+                        <td class="actions">
+
+                            <a href="{% url 'leave_edit' leave.id %}"
+                               class="edit">
+                                Edit
+                            </a>
+
+                            <a href="{% url 'leave_delete' leave.id %}"
+                               class="delete">
+                                Delete
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="8" class="empty">
+                            No leave records found.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

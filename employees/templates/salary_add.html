@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Salary</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="salary-add-page">
+
+    <div class="container">
+
+        <h1>💰 Add Salary</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Employee</label>
+
+            <select name="employee" required>
+                <option value="">-- Select Employee --</option>
+
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}">
+                        {{ employee.name }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>Basic Salary</label>
+
+            <input
+                type="number"
+                name="basic_salary"
+                step="0.01"
+                min="0"
+                required
+            >
+
+            <label>Allowances</label>
+
+            <input
+                type="number"
+                name="allowances"
+                step="0.01"
+                value="0"
+                min="0"
+                required
+            >
+
+            <label>Deductions</label>
+
+            <input
+                type="number"
+                name="deductions"
+                step="0.01"
+                value="0"
+                min="0"
+                required
+            >
+
+            <label>Salary Month</label>
+
+            <input
+                type="text"
+                name="salary_month"
+                placeholder="September 2026"
+                required
+            >
+
+            <label>Paid Date</label>
+
+            <input
+                type="date"
+                name="paid_date"
+                required
+            >
+
+            <label>Status</label>
+
+            <select name="status" required>
+                <option value="Paid">Paid</option>
+                <option value="Pending">Pending</option>
+            </select>
+
+            <button type="submit">
+                💾 Save Salary
+            </button>
+
+        </form>
+
+        <a href="{% url 'employee_list' %}" class="back">
+            ← Back to Employee List
+        </a>
+
+    </div>
+
+</body>
+</html>

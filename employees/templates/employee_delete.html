@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Employee</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="employee-delete-page">
+
+<div class="container">
+
+    <h1>⚠️ Delete Employee</h1>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ employee.name }}</strong>?
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit" class="delete-btn">
+            🗑️ Yes, Delete
+        </button>
+
+        <a href="{% url 'employee_list' %}" class="cancel">
+            Cancel
+        </a>
+    </form>
+
+</div>
+
+</body>
+</html>

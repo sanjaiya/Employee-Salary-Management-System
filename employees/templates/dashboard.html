@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Salary Management</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">
+            Employee Salary Management
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{% url 'dashboard' %}">
+                🏠 Dashboard
+            </a>
+
+            <a href="{% url 'employee_list' %}">
+                👥 Employees
+            </a>
+
+            <a href="{% url 'salary_list' %}">
+                💰 Salary
+            </a>
+
+            <a href="{% url 'leave_list' %}">
+                🏖️ Leaves
+            </a>
+
+            <a href="{% url 'logout' %}" class="logout">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <div class="welcome">
+
+            <h2>Welcome to Dashboard 👋</h2>
+
+            <p>
+                Manage employees, salaries, departments and leaves.
+            </p>
+
+        </div>
+
+        <!-- DASHBOARD CARDS -->
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🏢</div>
+                <h3>Departments</h3>
+                <div class="number">{{ department_count }}</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">👥</div>
+                <h3>Employees</h3>
+                <div class="number">{{ employee_count }}</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Salary Records</h3>
+                <div class="number">{{ salary_count }}</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏖️</div>
+                <h3>Leave Records</h3>
+                <div class="number">{{ leave_count }}</div>
+            </div>
+
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="actions">
+
+            <a href="{% url 'employee_list' %}" class="btn">
+                👥 Manage Employees
+            </a>
+
+            <a href="{% url 'salary_list' %}" class="btn">
+                💰 Manage Salary
+            </a>
+
+            <a href="{% url 'leave_list' %}" class="btn">
+                🏖️ Manage Leaves
+            </a>
+
+            <a href="{% url 'department_list' %}" class="btn">
+                🏢 Manage Departments
+            </a>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            Employee Salary Management System © 2026
+        </div>
+
+    </div>
+
+</body>
+
+</html>

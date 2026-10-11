@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Employee</title>
+
+    {% load static %}
+    {% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="employee-edit-page">
+
+<div class="container">
+
+    <h1>✏️ Edit Employee</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Employee Name</label>
+        <input
+            type="text"
+            name="name"
+            value="{{ employee.name }}"
+            required
+        >
+
+        <label>Email</label>
+        <input
+            type="email"
+            name="email"
+            value="{{ employee.email }}"
+            required
+        >
+
+        <label>Phone</label>
+        <input
+            type="text"
+            name="phone"
+            value="{{ employee.phone }}"
+            required
+        >
+
+        <label>Age</label>
+        <input
+            type="number"
+            name="age"
+            value="{{ employee.age }}"
+            required
+        >
+
+        <label>Department</label>
+        <select name="department" required>
+
+            {% for department in departments %}
+
+                <option
+                    value="{{ department.id }}"
+                    {% if department.id == employee.department.id %}
+                        selected
+                    {% endif %}
+                >
+                    {{ department.dept_name }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <label>Designation</label>
+        <input
+            type="text"
+            name="designation"
+            value="{{ employee.designation }}"
+            required
+        >
+
+        <label>Joining Date</label>
+        <input
+            type="date"
+            name="joining_date"
+            value="{{ employee.joining_date|date:'Y-m-d' }}"
+            required
+        >
+
+        <label>Status</label>
+        <select name="status">
+
+            <option
+                value="Active"
+                {% if employee.status == "Active" %}
+                    selected
+                {% endif %}
+            >
+                Active
+            </option>
+
+            <option
+                value="Inactive"
+                {% if employee.status == "Inactive" %}
+                    selected
+                {% endif %}
+            >
+                Inactive
+            </option>
+
+        </select>
+
+        <button type="submit">
+            💾 Update Employee
+        </button>
+
+    </form>
+
+    <a href="{% url 'employee_list' %}" class="back">
+        ← Back to Employee List
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Department</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+
+        <div class="logo">
+            Salary Management
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'employee_list' %}">Employees</a>
+            <a href="{% url 'salary_list' %}">Salary</a>
+            <a href="{% url 'leave_list' %}">Leaves</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>Add Department</h1>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label>Department Name</label>
+
+                <input
+                    type="text"
+                    name="dept_name"
+                    placeholder="Enter department name"
+                    required
+                >
+
+                <div class="buttons">
+
+                    <button type="submit" class="save-btn">
+                        Save Department
+                    </button>
+
+                    <a
+                        href="{% url 'department_list' %}"
+                        class="cancel-btn"
+                    >
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Leave</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="leave-edit-page">
+
+    <div class="container">
+
+        <h1>✏️ Edit Leave</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Employee</label>
+            <select name="employee" required>
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}"
+                        {% if employee.id == leave.employee.id %}selected{% endif %}>
+                        {{ employee.name }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>Leave Type</label>
+            <select name="leave_type" required>
+                <option value="Casual Leave"
+                    {% if leave.leave_type == "Casual Leave" %}selected{% endif %}>
+                    Casual Leave
+                </option>
+
+                <option value="Sick Leave"
+                    {% if leave.leave_type == "Sick Leave" %}selected{% endif %}>
+                    Sick Leave
+                </option>
+
+                <option value="Earned Leave"
+                    {% if leave.leave_type == "Earned Leave" %}selected{% endif %}>
+                    Earned Leave
+                </option>
+
+                <option value="Emergency Leave"
+                    {% if leave.leave_type == "Emergency Leave" %}selected{% endif %}>
+                    Emergency Leave
+                </option>
+
+                <option value="Other"
+                    {% if leave.leave_type == "Other" %}selected{% endif %}>
+                    Other
+                </option>
+            </select>
+
+            <label>Start Date</label>
+            <input
+                type="date"
+                name="start_date"
+                value="{{ leave.start_date|date:'Y-m-d' }}"
+                required
+            >
+
+            <label>End Date</label>
+            <input
+                type="date"
+                name="end_date"
+                value="{{ leave.end_date|date:'Y-m-d' }}"
+                required
+            >
+
+            <label>Reason</label>
+            <textarea name="reason" required>{{ leave.reason }}</textarea>
+
+            <label>Status</label>
+            <select name="status" required>
+                <option value="Pending"
+                    {% if leave.status == "Pending" %}selected{% endif %}>
+                    Pending
+                </option>
+
+                <option value="Approved"
+                    {% if leave.status == "Approved" %}selected{% endif %}>
+                    Approved
+                </option>
+
+                <option value="Rejected"
+                    {% if leave.status == "Rejected" %}selected{% endif %}>
+                    Rejected
+                </option>
+            </select>
+
+            <div class="buttons">
+                <button type="submit">Update Leave</button>
+
+                <a href="{% url 'leave_list' %}" class="back">
+                    ← Back
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

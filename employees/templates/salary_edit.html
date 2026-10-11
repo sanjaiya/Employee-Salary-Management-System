@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Salary</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="salary-edit-page">
+
+    <div class="container">
+        <h1>✏️ Edit Salary</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Employee</label>
+            <select name="employee" required>
+                {% for employee in employees %}
+                    <option
+                        value="{{ employee.id }}"
+                        {% if employee.id == salary.employee.id %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ employee.name }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>Basic Salary</label>
+            <input
+                type="number"
+                name="basic_salary"
+                step="0.01"
+                value="{{ salary.basic_salary }}"
+                required
+            >
+
+            <label>Allowances</label>
+            <input
+                type="number"
+                name="allowances"
+                step="0.01"
+                value="{{ salary.allowances }}"
+                required
+            >
+
+            <label>Deductions</label>
+            <input
+                type="number"
+                name="deductions"
+                step="0.01"
+                value="{{ salary.deductions }}"
+                required
+            >
+
+            <label>Salary Month</label>
+            <input
+                type="text"
+                name="salary_month"
+                value="{{ salary.salary_month }}"
+                required
+            >
+
+            <label>Paid Date</label>
+            <input
+                type="date"
+                name="paid_date"
+                value="{{ salary.paid_date|date:'Y-m-d' }}"
+                required
+            >
+
+            <label>Status</label>
+            <select name="status">
+                <option value="Paid"
+                    {% if salary.status == "Paid" %}
+                        selected
+                    {% endif %}
+                >
+                    Paid
+                </option>
+
+                <option value="Pending"
+                    {% if salary.status == "Pending" %}
+                        selected
+                    {% endif %}
+                >
+                    Pending
+                </option>
+            </select>
+
+            <button type="submit">💾 Update Salary</button>
+        </form>
+
+        <a href="{% url 'salary_list' %}" class="back">
+            ← Back to Salary List
+        </a>
+    </div>
+
+</body>
+</html>

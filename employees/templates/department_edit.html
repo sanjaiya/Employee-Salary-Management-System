@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Department</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'department_edit.css' %}">
+</head>
+
+<body class="department-edit-page">
+
+    <div class="navbar">
+
+        <div class="logo">
+            Salary Management
+        </div>
+
+        <div class="nav-links">
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'employee_list' %}">Employees</a>
+            <a href="{% url 'salary_list' %}">Salary</a>
+            <a href="{% url 'leave_list' %}">Leaves</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h1>Edit Department</h1>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <label for="dept_name">Department Name</label>
+
+                <input
+                    type="text"
+                    id="dept_name"
+                    name="dept_name"
+                    value="{{ department.dept_name }}"
+                    required
+                >
+
+                <div class="buttons">
+
+                    <button type="submit" class="save-btn">
+                        Update Department
+                    </button>
+
+                    <a href="{% url 'department_list' %}" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
